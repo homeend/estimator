@@ -12,6 +12,16 @@ const add = (name, price) => {
         return [new_item, ...items];
     });
 }
+const edit = (id, name, price) => {
+    materialStore.update((items) => {
+        const material = items.find(material => material.id === id);
+        if(material){
+            material.name = name;
+            material.price = price;
+        }
+        return items;
+    });
+}
 
 const LOCAL_STORE_KEY = 'estimator-local-store';
 
@@ -29,4 +39,5 @@ materialStore.subscribe((items) => {
 export default {
     subscribe: materialStore.subscribe,
     add,
+    edit
 }

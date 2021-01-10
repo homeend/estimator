@@ -7,7 +7,7 @@
     let price;
 
 	function passEditData(evt){
-		{id, name, price} = evt.detail; 
+		({id, name, price} = evt.detail); 
 	}
 </script>
 
