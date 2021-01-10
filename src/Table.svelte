@@ -15,8 +15,12 @@
     const dispatch = createEventDispatcher();
 
     function editMaterial(id, name, price){
-        console.log(id, name, price);
+        // console.log(id, name, price);
         dispatch('edit', {id, name, price});
+    }
+
+    function removeMaterial(id){
+        my_store.remove(id);
     }
 
 </script>
@@ -43,7 +47,7 @@
         <tr class="editable" on:click={editMaterial(material.id, material.name, material.price)}>
             <td>{material.name}</td>
             <td>{formatter.format(material.price)}</td>
-            <td><i class="far fa-trash-alt" /></td>
+            <td><i on:click|stopPropagation={removeMaterial(material.id)} class="far fa-trash-alt" /></td>
         </tr>
         {/each}
         {#if materials.length>0}

@@ -23,6 +23,12 @@ const edit = (id, name, price) => {
     });
 }
 
+const remove = (id) => {
+    materialStore.update((items) => {
+        return items.filter(material => material.id !== id);
+    });
+}
+
 const LOCAL_STORE_KEY = 'estimator-local-store';
 
 if(localStorage.getItem(LOCAL_STORE_KEY)){
@@ -39,5 +45,6 @@ materialStore.subscribe((items) => {
 export default {
     subscribe: materialStore.subscribe,
     add,
-    edit
+    edit,
+    remove
 }
