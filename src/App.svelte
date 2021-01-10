@@ -1,6 +1,14 @@
 <script>
 	import Table from './Table.svelte';
 	import Form from './Form.svelte';
+
+    let id;
+    let name = "";
+    let price;
+
+	function passEditData(evt){
+		{id, name, price} = evt.detail; 
+	}
 </script>
 
 <style>
@@ -15,6 +23,6 @@
 
 <main>
 	<h1>Estimator</h1>
-	<Form />
-	<Table />
+	<Form bind:price bind:id bind:name/>
+	<Table on:edit={passEditData}/>
 </main> 

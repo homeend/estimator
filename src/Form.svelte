@@ -4,6 +4,7 @@
     export let id;
     export let name = "";
     export let price;
+    
     $: add_mode = id === undefined;
     $: can_submit = name!==undefined && name!==null && name.length>0 
         && price!==undefined && price!==null && price>=0;
