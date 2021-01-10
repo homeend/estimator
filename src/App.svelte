@@ -17,4 +17,4 @@
 	<h1>Estimator</h1>
 	<Form />
 	<Table />
-</main>
+</main> 
