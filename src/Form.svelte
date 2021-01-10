@@ -4,6 +4,7 @@
     export let id;
     export let name = "";
     export let price;
+
     $: add_mode = id === undefined;
     $: can_submit = name!==undefined && name!==null && name.length>0 
         && price!==undefined && price!==null && price>=0;
@@ -15,6 +16,9 @@
 
         if(add_mode){
             my_store.add(name, price);
+        }
+        else{
+            my_store.edit(id, name, price);
         }
 
         price = '';
